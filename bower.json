@@ -1,0 +1,12 @@
+{
+  "name": "change_request",
+  "version": "0.0.0",
+  "homepage": "https://github.com/patrykpilek/change_request",
+  "authors": [
+    "Patryk Pilek (patryk.pilek@gmail.com)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
