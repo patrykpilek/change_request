@@ -1,9 +1,9 @@
 (function(){
 	var ListController = function($scope){
-		$scope.txt = "Text number 2";
+		$scope.pageTitle = "Change Request - List";
 
 		$scope.display = function(){
-			return "Patryk Pilek - List Page."
+			return $scope.pageTitle;
 		};
 	};
 
