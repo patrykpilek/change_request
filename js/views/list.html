@@ -1,3 +1,89 @@
-<h1>Text number 1</h1>
-<h2>{{ txt }}</h2>
-<h3>{{ display() }}</h3>
+<div class="panel panel-default">
+	<div class="panel-heading"><h4><strong>{{ display() }}</strong></h4></div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-2">
+						<select ng-model="entryLimit" class="form-control">
+							<option>5</option>
+							<option>10</option>
+							<option>25</option>
+							<option>50</option>
+						</select>
+					</div>
+					<div class="col-md-7">
+						<form>
+							<div class="form-group input-group">
+								<div class="input-group-addon"><i class="fa fa-search" ></i></div>
+								<input type="text" ng-model="search" ng-change="filter()" placeholder="Search" class="form-control" >
+							</div>
+						</form>
+					</div>
+					<div class="col-md-3">
+						<h5>Filtered {{ filtered.length }} of {{ totalItems }} total requests.</h5>
+					</div>
+					<div class="col-md-12" ng-show="filteredItems === 0">
+						<pre class="text-center">Page: {{ filteredItems }}</pre>
+					</div>
+					<div class="col-md-12" ng-show="filteredItems > 0" >
+						<pre class="text-center">Page: {{ currentPage }} / {{ filteredPageNum() }}</pre>
+					</div>
+					<table class="table table-striped table-bordered" ng-show="filteredItems > 0">
+					<!-- <table class="table table-striped table-bordered table-condensed" ng-show="filteredItems > 0">         -->
+					<thead >
+						<th class="text-center col-md-1">
+							<a ng-click="orderByField ='id'; reverseSort = !reverseSort">Request
+								<span ng-show="orderByField == 'id'">
+									<span ng-show="!reverseSort" class="glyphicon glyphicon-triangle-bottom"></span>
+									<span ng-show="reverseSort" class="glyphicon glyphicon-triangle-top"></span>
+								</span>
+							</a>
+						</th>
+						<th class="text-center col-md-2">
+							<a ng-click="orderByField ='client'; reverseSort = !reverseSort">Client
+								<span ng-show="orderByField == 'client'">
+									<span ng-show="!reverseSort" class="glyphicon glyphicon-triangle-bottom"></span>
+									<span ng-show="reverseSort" class="glyphicon glyphicon-triangle-top"></span>
+								</span>
+							</a>
+						</th>
+						<th class="col-md-4">
+							<a ng-click="orderByField ='areaOrPlatform'; reverseSort = !reverseSort">Area/Platform component affected
+								<span ng-show="orderByField == 'areaOrPlatform'">
+									<span ng-show="!reverseSort" class="glyphicon glyphicon-triangle-bottom"></span>
+									<span ng-show="reverseSort" class="glyphicon glyphicon-triangle-top"></span>
+								</span>	
+							</a>
+						</th>
+						<th class="col-md-4">
+							<a ng-click="orderByField ='description'; reverseSort = !reverseSort">Description of proposed change
+								<span ng-show="orderByField == 'description'">
+									<span ng-show="!reverseSort" class="glyphicon glyphicon-triangle-bottom"></span>
+									<span ng-show="reverseSort" class="glyphicon glyphicon-triangle-top"></span>
+								</span>
+							</a>
+						</th>
+						<th class="col-md-1"></th>
+					</thead>
+					<tbody ng-init="get_request()">
+						<tr ng-repeat="request in filtered = ( requestList | filter:search | orderBy : orderByField: reverseSort) | startFrom:(currentPage - 1)*entryLimit | limitTo:entryLimit" class="repeat-animation">
+							<td class="text-center">{{ request.id }}</td>
+							<td class="text-center">{{ request.client | uppercase }}</td>
+							<td>{{ request.areaOrPlatform }}</td>
+							<td>{{ request.description }}</td>
+							<td class="text-center"><!-- <a href="" ng-click="delete_request(request.id)">Delete</a>  | --> <a href="" ng-click="request_details(request.id)"> View</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="col-md-12" ng-show="filteredItems === 0">
+					<h4>No Change Request found</h4>
+				</div>
+				<div class="col-md-12" ng-show="filteredItems > 0" >
+					<div class="text-center">
+						<pagination page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
