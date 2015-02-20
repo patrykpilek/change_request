@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4><strong>{{ pageTitle }}</strong></h4></div>
+        <div class="panel-body">
+            <div class="row well">
+                <div class="col-md-12">
+                    <h2>{{ display() }}</h2>
+                    <br />
+                    <dl class="dl-horizontal">
+                        <dt>Client</dt><dd>{{ request.client }}</dd>
+                        <dt>Area or platform component affected</dt><dd>{{ request.areaOrPlatform }}</dd>
+                        <dt>Description of proposed change</dt><dd>{{ request.description }}</dd>
+                        <dt>Justification for change:</dt><dd>{{ request.justification }}</dd>
+                        <dt>Implementation plan:</dt><dd>{{ request.implementaion }}</dd>
+                        <dt>Impact of change:</dt><dd>{{ request.impact }}</dd>
+                        <dt>Planned change date/time:</dt><dd>{{ request.changeDate }}</dd>
+                        <dt>Effort required (days):</dt><dd>{{ request.effortRequired }}</dd>
+                        <dt>Resources allocated:</dt><dd>{{ request.resourcesAllocated }}</dd>
+                        <dt>Risks identified:</dt><dd>{{ request.risks }}</dd>
+                        <dt>Impact of risk:</dt><dd>{{ request.impactOfRisk }}</dd>
+                        <dt>Test Plan:</dt><dd>{{ request.testPlan }}</dd>
+                        <dt>Contingency Plan:</dt><dd>{{ request.contingencyPlan }}</dd>
+                        <dt>Change Owner:</dt><dd>{{ request.changeOwner }}</dd>
+                        <dt>Check By:</dt><dd>{{ request.checkBy }}</dd>
+                        <dt>Approver's Email:</dt><dd>{{ request.approverEmail }}</dd>
+                        <dt>Approved:</dt><dd>{{ request.approved }}</dd>
+                    </dl>
+                </div>
+            </div>
+            <section>
+                <div>
+                    <!-- Comment List  -->
+                    <ul class="list-unstyled">
+                        <h4>Comments:</h4>
+                        <li ng-repeat="com in comment" class="repeat-animation">
+                            <blockquote>
+                                <p>{{com.body}}</p>
+                                <footer><cite title="Autor">{{com.email}}, </cite>{{com.createdOn | date}}</footer>
+                                <!-- <td> <a href="javascript:void(0)" ng-click="edit(comment.id)">edit</a> | <a href="javascript:void(0)" ng-click="delete(comment.id)">delete</a> -->
+                            </blockquote>
+                        </li>
+                    </ul>
+                     <!-- Comment Form  -->
+                    <form name="commentForm">
+                        <!-- Live Preview   -->
+                        <blockquote class="blockquote-reverse">
+                            <p>{{newcomment.body}}</p>
+                            <footer><cite title="Autor">{{newcomment.email}}</cite></footer>
+                        </blockquote>
+                        <!-- Comment Form  -->
+                        <h4>Post a comment</h4>
+                        <fieldset class="form-group">
+                            <textarea ng-model="newcomment.body" class="form-control" placeholder="Write a comment here..." title="Comment"></textarea>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input ng-model="newcomment.email" type="email" class="form-control" placeholder="name@example.org" title="Email" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="hidden" ng-model="newcomment.createdOn" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="hidden" ng-model="newcomment.id" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="submit" class="btn btn-primary pull-right" value="Submit Comment" ng-click="saveComment()" />
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

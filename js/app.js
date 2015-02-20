@@ -1,6 +1,6 @@
 (function() {
 
-	var app = angular.module('changeRequest', ['ui.router']);
+	var app = angular.module('changeRequest', ['ui.router', , 'ui.bootstrap']);
 
 	app.config(function($stateProvider, $urlRouterProvider){
 		$stateProvider
@@ -16,13 +16,29 @@
 				controller: 'SignupController'
 			})
 
-			.state('list', {
-				url: '/list',
-				templateUrl: 'js/views/list.html',
-				controller: 'ListController'
+			.state('requests', {
+				url: '/requests',
+				templateUrl: 'js/views/requests.html',
+				controller: 'RequestsController'
+			})
+
+			.state('requestById', {
+				url: '/requestById/:id',
+				templateUrl: 'js/views/requestById.html',
+				controller: 'RequestByIdController'
 			});
 
 		$urlRouterProvider.otherwise('/login');
 	});
-	
+
+	app.filter('startFrom',function() {
+		return function(input, start){
+			if(input){
+				start = +start;
+				return input.slice(start);
+			};
+			return [];
+		};
+	});
+
 }());
