@@ -31,16 +31,13 @@
         };
 
         $scope.saveComment = function(){
-            $http.post('php/dbControllers.php?action=save_comment', {
-                'body': $scope.newcomment.body,
-                'request_id': requestId,
-                'email': $scope.newcomment.email
-            }).success(function (data, status, headers, config) {
-                init();
-                $scope.newcomment = {};
-                $log.log("Comment has been Submitted Successfully");
-            }).error(function(data, status, headers, config){
-                $log.log("Comment hasn't been submitted");
+            commmentFactory.saveComment($scope.newcomment.body, requestId, $scope.newcomment.email)
+                .success(function (data, status, headers, config) {
+                    init();
+                    $scope.newcomment = {};
+                    $log.log("Comment has been Submitted Successfully");
+                }).error(function(data, status, headers, config){
+                    $log.log("Comment hasn't been submitted");
             });
         };
 	};
