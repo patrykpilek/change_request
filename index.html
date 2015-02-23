@@ -33,6 +33,7 @@
     <script type="text/javascript" src="js/controllers/requestByIdController.js"></script>
     <script type="text/javascript" src="js/services/requestFactory.js"></script>
     <script type="text/javascript" src="js/services/commentFactory.js"></script>
+    <script type="text/javascript" src="js/controllers/newRequestController.js"></script>
 
 </head>
 <body>
@@ -51,7 +52,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a>New Change Request</a></li>
+                <li><a ui-sref="newRequest.q1">New Change Request</a></li>
                 <li><a ui-sref="requests">List of Change Requests</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -63,9 +64,7 @@
       </div>
     </nav>
 
-    <div class="container">
-        <div ui-view></div>    
-    </div>
+    <div ui-view></div>    
     
 </body>
 </html>

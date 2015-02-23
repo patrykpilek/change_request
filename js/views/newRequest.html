@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4><strong>{{ display() }}</strong></h4>
+		</div>			
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="form-container">
+						<div class="page-header text-center">
+							<h2>Change Request Form</h2>
+                    		<br />
+							<div id="status-buttons" class="text-center">
+								<a ui-sref-active="active" ui-sref=".q1"><span>Q1</span></a>
+								<a ui-sref-active="active" ui-sref=".q2"><span>Q2</span></a>
+								<a ui-sref-active="active" ui-sref=".q3"><span>Q3</span></a>
+								<a ui-sref-active="active" ui-sref=".q4"><span>Q4</span></a>
+								<a ui-sref-active="active" ui-sref=".q5"><span>Q5</span></a>
+								<a ui-sref-active="active" ui-sref=".q6"><span>Q6</span></a>
+								<a ui-sref-active="active" ui-sref=".q7"><span>Q7</span></a>
+								<a ui-sref-active="active" ui-sref=".q8"><span>Q8</span></a>
+								<a ui-sref-active="active" ui-sref=".q9"><span>Q9</span></a>
+								<a ui-sref-active="active" ui-sref=".q10"><span>Q10</span></a>
+								<a ui-sref-active="active" ui-sref=".q11"><span>Q11</span></a>
+								<a ui-sref-active="active" ui-sref=".q12"><span>Q12</span></a>
+								<a ui-sref-active="active" ui-sref=".q13"><span>Q13</span></a>
+								<a ui-sref-active="active" ui-sref=".q14"><span>Q14</span></a>
+								<a ui-sref-active="active" ui-sref=".q15"><span>Q15</span></a>
+								<a ui-sref-active="active" ui-sref=".q16"><span>Q16</span></a>
+							</div>
+						</div>
+						
+						<form name="add_request" id="signup-form" ng-submit="submitRequest">
+							<div id="form-views" ui-view></div>	
+						</form>
+
+					</div>
+
+					<pre>{{ newRequest }}</pre>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<!-- newRequest-q1.html -->
+<div class="form-group">
+	<blockquote>
+		<p>Client:</p>
+	</blockquote>
+<!-- 	<span ng-if="!checked">
+		<textarea class="form-control" id="textareaEdit" ng-model="newRequest.client" placeholder="input here..."></textarea>
+	</span> -->
+	<span ng-if="checked">
+			<textarea ng-disabled="checked" class="form-control" id="textareaEdit" ng-model="newRequest.client" placeholder="input here..." ng-init="newRequest.client='N/A'" disabled></textarea>
+	</span>
+<!-- 	<textarea ng-disabled="checked" class="form-control" id="textareaEdit" ng-model="newRequest.client" placeholder="input here..."  disabled></textarea> -->
+	<!-- <input ng-if="checked" class="form-control" id="textareaEdit" ng-model="newRequest.client" ng-init="newRequest.client='N/A'"></input> -->
+	<span ng-if="newRequest === 'N/A'">
+		
+	</span>
+</div>
+<div class="checkbox">
+	<label>
+		<input type="checkbox" ng-model="checked"> Select box if this section is not applicable.
+	</label>
+</div>
+<div class="form-group row">
+	<div align="center">
+		<a ui-sref="newRequest.q2" type="button" name="next" class="next action-button btn btn-primary">Next <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+	</div>
+	<br />
+</div>

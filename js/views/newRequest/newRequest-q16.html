@@ -1,0 +1,23 @@
+<!-- newRequest-q16.html -->
+<div class="form-group">
+  <blockquote>
+      <p>Approver's email address:</p>
+      <footer>This form will automatically be emailed to this address for approval. In most cases the approver should be your manager. NO changes are to be made without approval being granted.</footer>
+  </blockquote>
+
+  <label for="approver">Approver select:</label>
+  <select id="approver" ng-model="newRequest.approver" style="color: black">
+      <option value="paul.benslay@x-on.co.uk" >Paul Bensley</option>
+      <option value="claus.hansen@x-on.co.uk">Claus Hansen</option>
+      <option value="toby.mace@x-on.co.uk">Toby Mace</option>
+      <option value="lesley.bensley@x-on.co.uk">Lesley Bensley</option>
+      <option value="callum.guy@x-on.co.uk">Callum Guy</option>
+    </select>
+</div>
+
+<div class="form-group row">
+  <div align="center">
+    <a ui-sref="newRequest.q15" type="button" name="next" class="next action-button btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-left"></span> Previous</a>
+    <a ng-click="" type="button" name="submit" class="submit action-button btn btn-primary">Submit <span class="glyphicon glyphicon-send"></span></a>
+    </div>
+</div>
